@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Time
   def self.stamp
     Time.now.stamp
@@ -71,9 +73,9 @@ module SimpleUUID
           end
         else
           byte_array += [
-            rand(2**13) | VARIANT,
-            rand(2**16),
-            rand(2**32)
+            SecureRandom.random_number(2**13) | VARIANT,
+            SecureRandom.random_number(2**16),
+            SecureRandom.random_number(2**32)
           ]
         end
 
